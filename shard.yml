@@ -1,0 +1,18 @@
+name: crypto_crystal
+version: 0.1.0
+
+authors:
+  - Alexander Aleksanyan <aleksanyanalek@gmail.com>
+
+targets:
+  crypto_crystal:
+    main: src/crypto_crystal.cr
+
+crystal: 0.23.1
+
+license: MIT
+
+dependencies:
+    kemal:
+      github: kemalcr/kemal
+      branch: master

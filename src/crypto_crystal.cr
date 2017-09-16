@@ -1,9 +1,6 @@
 require "./crypto_crystal/*"
 require "http/client"
-require "http/server"
 require "json"
-require "time/span"
-require "uri"
 require "kemal"
 
 module CryptoCrystal

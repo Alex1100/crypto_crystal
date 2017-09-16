@@ -1,6 +1,6 @@
 # crypto_crystal
 
-##Crypto Spot Price Tracker Built With Crystal-Lang and <a href="https://github.com/kemalcr/kemal">Kemal</a>
+##Crypto Spot Price Tracker Built With <a href="https://github.com/crystal-lang/crystal">Crystal-Lang</a> and <a href="https://github.com/kemalcr/kemal">Kemal</a>
 <hr/>
 ## Installation
 - MAC OSX SETUP

@@ -33,7 +33,7 @@ module CryptoCrystal
   # get "/prices.json" do |env|
   #   livecoin_res = JSON.parse((HTTP::Client.get("https://api.livecoin.net/exchange/ticker").body))[2]
   #   cCex_res = JSON.parse((HTTP::Client.get("https://c-cex.com/t/prices.json").body))
-  #   cCex_BTCUSD = cCex_res["usd-btc"]
+  #   cCex_BTCUSD = cCex_res["btc-usd"]
   #   req = [livecoin_res, cCex_BTCUSD]
   #   prices = {livecoin_BTCUSD: req[0], cCex_BTCUSD: req[1]}.to_json
   #   env.response.content_type = "application/json"

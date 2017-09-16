@@ -3,6 +3,11 @@
     <title>Crystal-Crypto</title>
   </head>
   <body>
-    <%= content %>
+    <%- if cCex_BTCUSD || livecoin_BTCUSD %>
+    <p>livecoinBTCUSD: <%= livecoin_BTCUSD %></p>
+    <p>cCexBTCUSD: <%= cCex_BTCUSD %></p>
+    <%- else %>
+      <p>Loading</p>
+    <%- end %>
   </body>
 </html>

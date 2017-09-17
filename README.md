@@ -10,7 +10,7 @@
 <hr/>
 
 ## Installation
-- MAC OSX SETUP
+** MAC OSX SETUP
 - <code>git clone https://github.com/Alex1100/crypto_crystal.git && cd crypto_crystal && brew update && brew install crystal-lang && brew install openssl && xcode-select --install && xcode --switch /Library/Developer/CommandLineTools</code>
 
 <hr/>

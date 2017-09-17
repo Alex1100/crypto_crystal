@@ -9,7 +9,7 @@
 ## Installation
 - MAC OSX SETUP
 - <code>git clone https://github.com/Alex1100/crypto_crystal.git && cd crypto_crystal && brew update && brew install crystal-lang && brew install openssl && xcode-select --install && xcode --switch /Library/Developer/CommandLineTools && crystal run src/crystal_crypto.cr --link-flags '-I/usr/local/opt/openssl/include -L/usr/local/opt/openssl/lib'</code>
-
+<hr/>
 ## To Check Out The App in Development Mode
 - <code>npm install</code>
 - Open up another terminal tab/window and run <code>npm run compile</code>

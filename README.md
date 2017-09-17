@@ -18,6 +18,7 @@
 ## To Check Out The App in Development Mode
 - <code>npm install</code>
 - Open up another terminal tab/window and run <code>npm run compile</code>
+- <code>npm start</code>
 - Check out the app running on the browser via <a href="localhost:3000">localhost:3000</a>
 
 <hr/>

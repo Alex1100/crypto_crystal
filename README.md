@@ -1,8 +1,8 @@
 # crypto_crystal
 
 ![](https://cloud.githubusercontent.com/assets/209371/13291809/022e2360-daf8-11e5-8be7-d02c1c8b38fb.png)
-<hr/>
 ![](https://webrazzi.com/wp-content/uploads/2016/04/kemal-ekran-goruntusu.png)
+<hr/>
 
 ##Crypto Spot Price Tracker Built With <a href="https://github.com/crystal-lang/crystal">Crystal-Lang</a> and <a href="https://github.com/kemalcr/kemal">Kemal</a>
 <hr/>

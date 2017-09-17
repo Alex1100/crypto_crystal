@@ -16,3 +16,11 @@ dependencies:
     kemal:
       github: kemalcr/kemal
       branch: master
+    rocky:
+      github: codingphasedotcom/rocky
+      branch: master
+    granite_orm:
+      github: Amber-Crystal/granite-orm
+
+    pg:
+      github: will/crystal-pg

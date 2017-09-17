@@ -1,0 +1,39 @@
+body{
+  background-color: black;
+}
+
+.ticker-container{
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  width: 800px;
+  background-color: #6e4698;
+  height: 55%;
+  border: groove #f9aa40 2px;
+  border-radius: 2px;
+}
+
+h1{
+  text-align: center;
+}
+
+td{
+  border-left: 20px solid #35495e;
+  border-right: 20px solid #35495e;
+  background: #6ae3f2;
+  color: white;
+  text-align: center;
+}
+
+.livecoin-table{
+  width:60%;
+  background-color: #aac77e;
+  margin: 0 auto;
+  margin-bottom: 30px
+}
+
+.c-cex-table{
+  width:60%;
+  background-color: #aac77e;
+  margin: 0 auto;
+}

@@ -4,41 +4,38 @@ require "json"
 require "kemal"
 
 module CryptoCrystal
-  before_get "/" do |env|
-    env.set "livecoin_BTCUSD", 0
-    env.set "cCex_BTCUSD", 0
-  end
-
   get "/" do |env|
-    livecoin_BTCUSD = env.get "livecoin_BTCUSD"
-    cCex_BTCUSD = env.get "cCex_BTCUSD"
-    render "src/views/layout.ecr"
+    render "public/index.ecr"
   end
 
-  before_get "/prices" do |env|
-    livecoin_res = JSON.parse((HTTP::Client.get("https://api.livecoin.net/exchange/ticker").body))[2]
-    livecoin_BTCUSD = livecoin_res["last"]
+  get "/prices.json" do |env|
+    livecoin_res = JSON.parse((HTTP::Client.get("https://api.livecoin.net/exchange/ticker").body))
     cCex_res = JSON.parse((HTTP::Client.get("https://c-cex.com/t/prices.json").body))
-    cCex_BTCUSD = cCex_res["btc-usd"]["lastprice"]
-    env.set "livecoin_BTCUSD", livecoin_BTCUSD.to_s
-    env.set "cCex_BTCUSD", cCex_BTCUSD.to_s
-  end
 
-  get "/prices" do |env|
-    livecoin_BTCUSD = env.get "livecoin_BTCUSD"
-    cCex_BTCUSD = env.get "cCex_BTCUSD"
-    render "src/views/layout.ecr"
-  end
+    livecoin = {
+      "BTCUSD":  livecoin_res[2],
+      "ETHUSD":  livecoin_res[23],
+      "ETHBTC":  livecoin_res[24],
+      "LTCUSD":  livecoin_res[6],
+      "LTCBTC":  livecoin_res[7],
+      "DASHUSD": livecoin_res[18],
+      "DASHBTC": livecoin_res[19],
+    }
 
-  # get "/prices.json" do |env|
-  #   livecoin_res = JSON.parse((HTTP::Client.get("https://api.livecoin.net/exchange/ticker").body))[2]
-  #   cCex_res = JSON.parse((HTTP::Client.get("https://c-cex.com/t/prices.json").body))
-  #   cCex_BTCUSD = cCex_res["btc-usd"]
-  #   req = [livecoin_res, cCex_BTCUSD]
-  #   prices = {livecoin_BTCUSD: req[0], cCex_BTCUSD: req[1]}.to_json
-  #   env.response.content_type = "application/json"
-  #   prices
-  # end
+    cCex = {
+      "BTCUSD":  cCex_res["btc-usd"],
+      "ETHUSD":  cCex_res["eth-usd"],
+      "ETHBTC":  cCex_res["eth-btc"],
+      "LTCUSD":  cCex_res["ltc-usd"],
+      "LTCBTC":  cCex_res["ltc-btc"],
+      "DASHUSD": cCex_res["dash-usd"],
+      "DASHBTC": cCex_res["dash-btc"],
+    }
+
+    prices = {livecoin: livecoin, cCex: cCex}.to_json
+    env.response.content_type = "application/json"
+    prices
+  end
 
   Kemal.run
 end

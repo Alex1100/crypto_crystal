@@ -8,7 +8,7 @@ body{
   margin: 0 auto;
   width: 800px;
   background-color: #6e4698;
-  height: 55%;
+  height: 65%;
   border: groove #f9aa40 2px;
   border-radius: 2px;
 }
@@ -26,6 +26,12 @@ td{
 }
 
 .livecoin-table{
+  width:60%;
+  background-color: #aac77e;
+  margin: 0 auto;
+}
+
+.hitbtc-table{
   width:60%;
   background-color: #aac77e;
   margin: 0 auto;

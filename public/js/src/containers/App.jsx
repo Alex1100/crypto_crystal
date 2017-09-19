@@ -21,7 +21,6 @@ class App extends Component{
     if(this.state.livecoin[0] === "0"){
       axios.get('/prices.json')
         .then(res => {
-          console.log("WORKING INIT")
           this.setState({
             livecoin: [
               parseFloat(res.data.livecoin.BTCUSD).toPrecision(5),
@@ -51,12 +50,19 @@ class App extends Component{
               parseFloat(res.data.hitbtc.DASHBTC).toPrecision(5)
             ]
           }, () => this.handleChange());
+
+          setTimeout(() => {
+            this.fetchPrices();
+          }, 3000)
+
         })
         .catch(err => {
           setTimeout(() => {
             this.fetchPrices();
-          }, 60000);
+          }, 3000);
         });
+    } else {
+      this.fetchPrices();
     }
   }
 
@@ -270,7 +276,6 @@ class App extends Component{
     setInterval(() => {
       axios.get('/prices.json')
       .then(res => {
-        console.log("WORKING")
         this.setState({
           prev_livecoin: this.state.livecoin,
           prev_cCex: this.state.cCex,
@@ -307,7 +312,7 @@ class App extends Component{
       .catch(err => {
         console.log("ERR GETTING PRICES FROM CRYSTAL: ", err);
       })
-    }, 60000);
+    }, 3000);
   }
 
   render(){

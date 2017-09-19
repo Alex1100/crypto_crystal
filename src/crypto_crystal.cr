@@ -9,7 +9,6 @@ module CryptoCrystal
   end
 
   get "/prices.json" do |env|
-    sleep 5
     livecoin_res = JSON.parse((HTTP::Client.get("https://api.livecoin.net/exchange/ticker").body))
     cCex_res = JSON.parse((HTTP::Client.get("https://c-cex.com/t/prices.json").body))
     hitbtc_res = JSON.parse((HTTP::Client.get("https://api.hitbtc.com/api/1/public/ticker").body))

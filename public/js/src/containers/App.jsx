@@ -18,7 +18,46 @@ class App extends Component{
   }
 
   componentDidMount(){
-    this.fetchPrices();
+    if(this.state.livecoin[0] === "0"){
+      axios.get('/prices.json')
+        .then(res => {
+          console.log("WORKING INIT")
+          this.setState({
+            livecoin: [
+              parseFloat(res.data.livecoin.BTCUSD).toPrecision(5),
+              parseFloat(res.data.livecoin.ETHUSD).toPrecision(5),
+              parseFloat(res.data.livecoin.ETHBTC).toPrecision(5),
+              parseFloat(res.data.livecoin.LTCUSD).toPrecision(5),
+              parseFloat(res.data.livecoin.LTCBTC).toPrecision(5),
+              parseFloat(res.data.livecoin.DASHUSD).toPrecision(5),
+              parseFloat(res.data.livecoin.DASHBTC).toPrecision(5)
+            ],
+            cCex: [
+              parseFloat(res.data.cCex.BTCUSD).toPrecision(5),
+              parseFloat(res.data.cCex.ETHUSD).toPrecision(5),
+              parseFloat(res.data.cCex.ETHBTC).toPrecision(5),
+              parseFloat(res.data.cCex.LTCUSD).toPrecision(5),
+              parseFloat(res.data.cCex.LTCBTC).toPrecision(5),
+              parseFloat(res.data.cCex.DASHUSD).toPrecision(5),
+              parseFloat(res.data.cCex.DASHBTC).toPrecision(5)
+            ],
+            hitbtc: [
+              parseFloat(res.data.hitbtc.BTCUSD).toPrecision(5),
+              parseFloat(res.data.hitbtc.ETHUSD).toPrecision(5),
+              parseFloat(res.data.hitbtc.ETHBTC).toPrecision(5),
+              parseFloat(res.data.hitbtc.LTCUSD).toPrecision(5),
+              parseFloat(res.data.hitbtc.LTCBTC).toPrecision(5),
+              parseFloat(res.data.hitbtc.DASHUSD).toPrecision(5),
+              parseFloat(res.data.hitbtc.DASHBTC).toPrecision(5)
+            ]
+          }, () => this.handleChange());
+        })
+        .catch(err => {
+          setTimeout(() => {
+            this.fetchPrices();
+          }, 60000);
+        });
+    }
   }
 
   handleChange(){
@@ -231,6 +270,7 @@ class App extends Component{
     setInterval(() => {
       axios.get('/prices.json')
       .then(res => {
+        console.log("WORKING")
         this.setState({
           prev_livecoin: this.state.livecoin,
           prev_cCex: this.state.cCex,
@@ -267,7 +307,7 @@ class App extends Component{
       .catch(err => {
         console.log("ERR GETTING PRICES FROM CRYSTAL: ", err);
       })
-    }, 3000);
+    }, 60000);
   }
 
   render(){

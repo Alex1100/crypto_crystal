@@ -1,6 +1,7 @@
 require "./crypto_crystal/*"
 require "http/client"
 require "json"
+require "uri"
 require "kemal"
 
 module CryptoCrystal
@@ -25,12 +26,12 @@ module CryptoCrystal
 
     livecoin = {
       "BTCUSD":  livecoin_res[2]["last"],
-      "ETHUSD":  livecoin_res[23]["last"],
-      "ETHBTC":  livecoin_res[24]["last"],
+      "ETHUSD":  livecoin_res[24]["last"],
+      "ETHBTC":  livecoin_res[25]["last"],
       "LTCUSD":  livecoin_res[6]["last"],
-      "LTCBTC":  livecoin_res[7]["last"],
-      "DASHUSD": livecoin_res[18]["last"],
-      "DASHBTC": livecoin_res[19]["last"],
+      "LTCBTC":  livecoin_res[8]["last"],
+      "DASHUSD": livecoin_res[19]["last"],
+      "DASHBTC": livecoin_res[20]["last"],
     }
 
     cCex = {

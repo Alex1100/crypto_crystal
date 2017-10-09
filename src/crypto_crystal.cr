@@ -25,13 +25,13 @@ module CryptoCrystal
     }
 
     livecoin = {
-      "BTCUSD":  livecoin_res[2]["last"],
-      "ETHUSD":  livecoin_res[24]["last"],
-      "ETHBTC":  livecoin_res[25]["last"],
-      "LTCUSD":  livecoin_res[6]["last"],
-      "LTCBTC":  livecoin_res[8]["last"],
-      "DASHUSD": livecoin_res[19]["last"],
-      "DASHBTC": livecoin_res[20]["last"],
+      "BTCUSD":  livecoin_res.reject { |coin| coin["symbol"] != "BTC/USD" }[0]["last"],
+      "ETHUSD":  livecoin_res.reject { |coin| coin["symbol"] != "ETH/USD" }[0]["last"],
+      "ETHBTC":  livecoin_res.reject { |coin| coin["symbol"] != "ETH/BTC" }[0]["last"],
+      "LTCUSD":  livecoin_res.reject { |coin| coin["symbol"] != "LTC/USD" }[0]["last"],
+      "LTCBTC":  livecoin_res.reject { |coin| coin["symbol"] != "LTC/BTC" }[0]["last"],
+      "DASHUSD": livecoin_res.reject { |coin| coin["symbol"] != "DASH/USD" }[0]["last"],
+      "DASHBTC": livecoin_res.reject { |coin| coin["symbol"] != "DASH/BTC" }[0]["last"],
     }
 
     cCex = {

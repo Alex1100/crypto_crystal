@@ -1,4 +1,4 @@
-## Check out the app live at <a href="https://cryptohub-crystal.herokuapp.com/">Crypto-Crystal</a>
+## Check out the app live at <a href="https://crystal-ticker.herokuapp.com/">Crystal-Ticker</a>
 
 ![](https://cloud.githubusercontent.com/assets/209371/13291809/022e2360-daf8-11e5-8be7-d02c1c8b38fb.png)
 ![](https://webrazzi.com/wp-content/uploads/2016/04/kemal-ekran-goruntusu.png)
